@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="{{ site.description }}">
+
+  <title>
+    {{ title }} | {{ site.title }}
+  </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600&family=Epilogue:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.jade.min.css"
+  >
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<header class="container">
+
+  <nav>
+
+    <ul>
+      <li>
+        <strong>
+            <strong>
+              <a href="/">
+                {% if site.shortTitle %}
+                  {{ site.shortTitle }}
+                {% else %}
+                  {{ site.title }}
+                {% endif %}
+              </a>
+            </strong>
+        </strong>
+      </li>
+    </ul>
+
+
+    <ul>
+      {% for item in collections.all | eleventyNavigation %}
+
+      <li>
+        <a
+          href="{{ item.url }}"
+          {% if page.url == item.url %}
+          aria-current="page"
+          {% endif %}
+        >
+          {{ item.title }}
+        </a>
+      </li>
+
+      {% endfor %}
+    </ul>
+
+  </nav>
+
+</header>
+
+
+<main class="container">
+
+{{ content | safe }}
+
+</main>
+
+
+<footer class="container">
+
+<p>
+© <span id="year"></span>
+{% if site.footer %}
+  {{ site.footer }}
+{% else %}
+  {{ site.title }}
+{% endif %}
+</p>
+
+</footer>
+
+
+<script>
+document.getElementById("year").textContent =
+new Date().getFullYear();
+</script>
+
+
+</body>
+</html>

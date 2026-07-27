@@ -1,0 +1,19 @@
+:root {
+    --pico-font-family: "Epilogue", system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 300;
+}
+
+section {
+    margin-block: 4rem;
+}
+
+#hero {
+    text-align: center;
+    padding: 6rem 2rem;
+}

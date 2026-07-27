@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+title: FAQ
+
+eleventyNavigation:
+  key: faq
+  title: FAQs
+  order: 3
+---
+
+<section>
+
+<h1>
+{{ faq.title }}
+</h1>
+
+
+{% for item in faq.items %}
+
+<details>
+
+<summary role="button" class="secondary outline">
+{{ item.question }}
+</summary>
+
+<p>
+{{ item.answer }}
+</p>
+
+</details>
+
+{% endfor %}
+
+
+</section>

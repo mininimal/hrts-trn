@@ -1,0 +1,151 @@
+---
+layout: layouts/base.njk
+title: Contact
+
+eleventyNavigation:
+  key: contact
+  title: Contact
+  order: 4
+---
+
+<section>
+
+<h1>
+Get in Touch
+</h1>
+
+<p>
+Reaching out is the first step. Whether you have questions about our program,
+insurance, or are ready to begin treatment, we are here to help.
+</p>
+
+
+<div class="grid">
+
+<article>
+<header>
+Phone
+</header>
+
+<a href="tel:{{ site.phone }}">
+{{ site.phone }}
+</a>
+
+</article>
+
+
+<article>
+<header>
+Email
+</header>
+
+<a href="mailto:{{ site.email }}">
+{{ site.email }}
+</a>
+
+</article>
+
+
+<article>
+<header>
+Address
+</header>
+
+<p>
+{{ site.address }}
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>
+Contact Form
+</h2>
+
+
+<form
+name="contact"
+method="POST"
+data-netlify="true"
+>
+
+<input type="hidden" name="form-name" value="contact">
+
+
+<label>
+Name
+
+<input
+type="text"
+name="name"
+required
+>
+
+</label>
+
+
+<label>
+Phone
+
+<input
+type="tel"
+name="phone"
+>
+
+</label>
+
+
+<label>
+Email
+
+<input
+type="email"
+name="email"
+required
+>
+
+</label>
+
+
+<label>
+Message
+
+<textarea
+name="message"
+rows="6"
+></textarea>
+
+</label>
+
+
+<button type="submit">
+Send Message
+</button>
+
+
+</form>
+
+</section>
+
+
+<section>
+
+<p>
+<strong>
+If you are experiencing a medical or mental health emergency:
+</strong>
+</p>
+
+<p>
+Please call 911 or go to your nearest emergency room.
+For immediate crisis support, contact the 988 Suicide & Crisis Lifeline by
+calling or texting 988.
+</p>
+
+</section>

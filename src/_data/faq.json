@@ -1,0 +1,33 @@
+{
+  "title": "Frequently Asked Questions",
+  "items": [
+    {
+      "question": "What is IOP (Intensive Outpatient Program)?",
+      "answer": "IOP is a structured level of care that provides intensive treatment while allowing clients to continue living at home and managing daily responsibilities like work or family."
+    },
+    {
+      "question": "Do you treat mental health conditions, substance use, or both?",
+      "answer": "We treat adults facing mental health challenges with co-occurring substance use. We believe the two are closely connected, and treating one without the other rarely leads to lasting change."
+    },
+    {
+      "question": "What is your approach to treatment?",
+      "answer": "We believe substance use is rarely the root problem. It is often the way people have learned to cope with deeper mental health struggles. Rather than treating addiction in isolation, we focus on identifying and addressing what lies beneath it using evidence-based approaches including CBT, existential therapy, mindfulness, and somatic therapy."
+    },
+    {
+      "question": "Is this a faith-based program?",
+      "answer": "No. We are not affiliated with any specific faith tradition. We simply make space for each client's personal or spiritual beliefs to be part of their care, if that matters to them."
+    },
+    {
+      "question": "Do you accept insurance?",
+      "answer": "Insurance information will be added once finalized."
+    },
+    {
+      "question": "What happens during the admissions process?",
+      "answer": "The admissions process includes contacting our team, completing an assessment, completing intake, and beginning your treatment plan."
+    },
+    {
+      "question": "Is treatment confidential?",
+      "answer": "Yes. All treatment is confidential and protected under HIPAA and applicable federal and state privacy laws."
+    }
+  ]
+}
