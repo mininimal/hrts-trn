@@ -9,27 +9,17 @@ eleventyNavigation:
 ---
 
 <section>
-
-<h1>
-{{ faq.title }}
-</h1>
-
-
-{% for item in faq.items %}
-
-<details>
-
-<summary role="button" class="secondary outline">
-{{ item.question }}
-</summary>
-
-<p>
-{{ item.answer }}
-</p>
-
-</details>
-
-{% endfor %}
-
-
+  <h1>{{ faq.title }}</h1>
+  <hr>
+  {% for item in faq.items %}
+    <details>
+        <summary>
+            {{ item.question }}
+        </summary>
+        <p>
+            {{ item.answer }}
+        </p>
+    </details>
+    <hr>
+  {% endfor %}
 </section>

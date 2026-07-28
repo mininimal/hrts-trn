@@ -1,0 +1,10 @@
+<footer class="container">
+    <p>
+    © <span id="year"></span>
+        {% if site.footer %}
+            {{ site.footer }}
+        {% else %}
+            {{ site.title }}
+        {% endif %}
+    </p>
+</footer>

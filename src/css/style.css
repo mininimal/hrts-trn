@@ -2,6 +2,50 @@
     --pico-font-family: "Epilogue", system-ui, sans-serif;
 }
 
+[data-theme="dark"] {
+    --pico-background-color: #0d1a12;
+    --pico-card-background-color: #16271c;
+    --pico-color: #f3f7ef;
+    --pico-muted-color: #c9d7be;
+    --pico-primary: #a5c176;
+    --pico-primary-background: #a5c176;
+    --pico-primary-border: #a5c176;
+    --pico-primary-hover: #b6cf89;
+    --pico-primary-hover-background: #b6cf89;
+    --pico-primary-inverse: #0d1a12;
+    --pico-border-color: #2e4032;
+    --pico-card-background-color: #16271c;
+    --pico-card-sectioning-background-color: #16271c;
+    --pico-card-border-color: #304235;
+    --pico-form-element-border-color: #304235;
+    --pico-form-element-active-border-color: #a5c176;
+    --pico-form-element-focus-color: rgba(165, 193, 118, 0.35);
+    --pico-form-element-background-color: #16271c;
+    --pico-form-element-active-background-color: #16271c;
+    --pico-form-element-active-border-color: #a5c176;
+}
+
+[data-theme="light"] {
+    --pico-background-color: #f8faf7;
+    --pico-card-background-color: #ffffff;
+    --pico-color: #223028;
+    --pico-muted-color: #617060;
+    --pico-primary: #0d1a12;
+    --pico-primary-background: #0d1a12;
+    --pico-primary-border: #0d1a12;
+    --pico-primary-hover: #1a2a1f;
+    --pico-primary-hover-background: #1a2a1f;
+    --pico-primary-inverse: #ffffff;
+    --pico-border-color: #d7e1d2;
+    --pico-card-sectioning-background-color: #a5c176;
+    --pico-card-border-color: #cbd8c3;
+    --pico-form-element-background-color: #ffffff;
+    --pico-form-element-border-color: #cbd8c3;
+    --pico-form-element-active-background-color: #ffffff;
+    --pico-form-element-active-border-color: #a5c176;
+    --pico-form-element-focus-color: rgba(165, 193, 118, 0.35);
+}
+
 h1,
 h2,
 h3 {
@@ -9,11 +53,127 @@ h3 {
     font-weight: 300;
 }
 
+body {
+    min-block-size: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding-block: 2rem 4rem;
+}
+
 section {
     margin-block: 4rem;
 }
 
-#hero {
+section:first-child {
+    margin-block-start: 0;
+}
+
+section:last-child {
+    margin-block-end: 0;
+}
+
+#site-logo {
+    max-inline-size: 250px;
+}
+
+.hero {
+    background-image:
+        linear-gradient(rgb(8 26 16 / 0.65), rgb(8 26 16 / 0.65)),
+        var(--hero-image);
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--pico-border-radius);
+    padding-block: 8rem;
+    padding-inline: 2rem;
     text-align: center;
-    padding: 6rem 2rem;
+}
+
+.hero :is(h1, p) {
+    color: white;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.feature {
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .feature {
+        grid-template-columns: 18rem 1fr;
+        align-items: start;
+    }
+}
+
+.feature .grid {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+    .feature .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 1fr; /* optional, helps keep cells square-ish */
+    }
+}
+
+.callout {
+    margin-block-end: var(--pico-spacing);
+    padding: var(--pico-spacing);
+    border: 1px solid var(--pico-primary);
+    border-inline-start: 0.4rem solid var(--pico-primary);
+    border-radius: var(--pico-border-radius);
+    background: color-mix(in srgb, var(--pico-primary) 12%, transparent);
+}
+
+.callout > :last-child {
+    margin-block-end: 0;
+}
+
+/*----------MOTION----------*/
+
+button,
+[role="button"] {
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease,
+        transform 150ms ease,
+        box-shadow 150ms ease;
+}
+
+button:hover,
+[role="button"]:hover {
+    transform: translateY(-1px);
+}
+
+button:active,
+[role="button"]:active {
+    transform: translateY(0);
+}
+
+nav a {
+    transition:
+        color 150ms ease,
+        opacity 150ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

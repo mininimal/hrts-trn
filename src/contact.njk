@@ -8,144 +8,93 @@ eleventyNavigation:
   order: 4
 ---
 
-<section>
-
-<h1>
-Get in Touch
-</h1>
-
-<p>
-Reaching out is the first step. Whether you have questions about our program,
-insurance, or are ready to begin treatment, we are here to help.
-</p>
-
-
-<div class="grid">
-
-<article>
-<header>
-Phone
-</header>
-
-<a href="tel:{{ site.phone }}">
-{{ site.phone }}
-</a>
-
-</article>
-
-
-<article>
-<header>
-Email
-</header>
-
-<a href="mailto:{{ site.email }}">
-{{ site.email }}
-</a>
-
-</article>
-
-
-<article>
-<header>
-Address
-</header>
-
-<p>
-{{ site.address }}
-</p>
-
-</article>
-
-</div>
-
+<section class="feature">
+    <h1>{{ contact.title }}</h1>
+    <p>{{ contact.intro }}</p>
 </section>
 
-
 <section>
-
-<h2>
-Contact Form
-</h2>
-
-
-<form
-name="contact"
-method="POST"
-data-netlify="true"
->
-
-<input type="hidden" name="form-name" value="contact">
-
-
-<label>
-Name
-
-<input
-type="text"
-name="name"
-required
->
-
-</label>
-
-
-<label>
-Phone
-
-<input
-type="tel"
-name="phone"
->
-
-</label>
-
-
-<label>
-Email
-
-<input
-type="email"
-name="email"
-required
->
-
-</label>
-
-
-<label>
-Message
-
-<textarea
-name="message"
-rows="6"
-></textarea>
-
-</label>
-
-
-<button type="submit">
-Send Message
-</button>
-
-
-</form>
-
+    <h2>Contact Information</h2>
+    <div class="grid">
+        <article>
+            <header>Phone</header>
+            <a href="tel:{{ site.contact.phone }}">
+                {{ site.contact.phone }}
+            </a>
+        </article>
+        <article>
+            <header>Email</header>
+            <a href="mailto:{{ site.contact.email }}">
+                {{ site.contact.email }}
+            </a>
+        </article>
+        <article>
+            <header>Address</header>
+            <a
+              href="https://maps.google.com/?q={{ site.contact.address | urlencode }}"
+            >
+                <p>{{ site.contact.address }}</p>
+            </a>
+        </article>
+    </div>
 </section>
 
-
 <section>
+    <h2>{{ contact.formTitle }}</h2>
+    <aside class="callout">
+        <p>{{ contact.emergency.body }}</p>
+    </aside>
+    <form
+        name="contact"
+        method="POST"
+        action="/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+    >
+        <input
+            type="hidden"
+            name="form-name"
+            value="contact"
+        >
 
-<p>
-<strong>
-If you are experiencing a medical or mental health emergency:
-</strong>
-</p>
-
-<p>
-Please call 911 or go to your nearest emergency room.
-For immediate crisis support, contact the 988 Suicide & Crisis Lifeline by
-calling or texting 988.
-</p>
-
+        <p hidden>
+            <label>
+                Don't fill this out if you're human.
+                <input name="bot-field">
+            </label>
+        </p>
+        <label>
+            Name
+            <input
+            type="text"
+            name="name"
+            required
+            >
+        </label>
+        <label>
+            Phone
+            <input
+            type="tel"
+            name="phone"
+            >
+        </label>
+        <label>
+            Email
+            <input
+            type="email"
+            name="email"
+            required
+            >
+        </label>
+        <label>
+            Message
+            <textarea
+            name="message"
+            rows="4"
+            ></textarea>
+        </label>
+        <button type="submit">
+            Send Message
+        </button>
+    </form>
 </section>

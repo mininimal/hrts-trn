@@ -1,7 +1,20 @@
 {
   "title": "Hearts Turn Healing & Recovery",
   "description": "Hearts Turn Healing & Recovery is an outpatient treatment center helping adults facing mental health challenges with co-occurring substance use find lasting recovery, not just short-term stabilization.",
-  "phone": "602-814-2794",
-  "email": "yatalla@gmail.com",
-  "address": "515 W Buckeye Rd, St 403, Phoenix, AZ 85003"
+  "url": "https://heartsturn.com",
+
+  "contact": {
+    "phone": "602-814-2794",
+    "email": "yatalla@gmail.com",
+    "address": "515 W Buckeye Rd, St 403, Phoenix, AZ 85003"
+  },
+
+  "assets": {
+    "logo": {
+      "light": "/images/logo-light-mode.png",
+      "dark": "/images/logo-dark-mode.png"
+    },
+    "hero": "/images/hero.jpg",
+    "social": "/images/social.jpg"
+  }
 }

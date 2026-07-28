@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "heading": "Hearts Turn Healing & Recovery",
+    "body": "Hearts Turn Healing & Recovery is an outpatient treatment center helping adults facing mental health challenges with co-occurring substance use find lasting recovery, not just short-term stabilization.",
+    "primary": {
+      "text": "Start your recovery",
+      "href": "/contact/"
+    },
+    "secondary": {
+      "text": "Learn about our program",
+      "href": "/about/"
+    }
+  },
+
+  "about": {
+    "title": "Whole-Person Care",
+    "body": "Every person's path to recovery is different. That is why Hearts Turn Healing & Recovery pairs evidence-based clinical care with a whole-person approach, integrating each client's community, and their personal or spiritual beliefs, into their treatment."
+  },
+
+  "services": {
+    "title": "What We Offer",
+    "body": "Our Intensive Outpatient Program (IOP) combines group therapy, individual therapy, psychiatric services, and case management, all grounded in the belief that substance use is often a response to deeper struggles, not the struggle itself.",
+    "link": {
+      "text": "Learn more about our program →",
+      "href": "/about/"
+    }
+  },
+
+  "cta": {
+    "title": "Ready to Begin?",
+    "body": "If you or someone you love is ready to find a way through, we are here to help.",
+    "button": {
+      "text": "Contact us",
+      "href": "/contact/"
+    }
+  }
+}

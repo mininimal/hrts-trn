@@ -8,55 +8,74 @@ eleventyNavigation:
   order: 1
 ---
 
-<section id="hero">
-  <h1>{{ site.title }}</h1>
-
-  <p>
-    {{ site.description }}
-  </p>
-
-  <a href="/contact/" role="button">
-    Contact Us / Start Your Recovery
-  </a>
+<section
+  class="hero"
+  style="--hero-image: url('{{ site.assets.hero }}');"
+>
+    <h1>{{ home.hero.heading }}</h1>
+        <p>
+            {{ home.hero.body }}
+        </p>
+    <div class="button-group">
+        <a
+            href="{{ home.hero.primary.href }}"
+            role="button"
+        >
+            {{ home.hero.primary.text }}
+        </a>
+        <a
+            href="{{ home.hero.secondary.href }}"
+            role="button"
+            class="secondary"
+        >
+            {{ home.hero.secondary.text }}
+        </a>
+    </div>
 </section>
 
-
-<section>
-<h2>About</h2>
-
-<p>
-Every person's path to recovery is different. That is why Hearts Turn Healing
-& Recovery pairs evidence-based clinical care with a whole-person approach,
-integrating each client's community, and their personal or spiritual beliefs,
-into their treatment.
-</p>
+<section class="feature">
+    <header class="section__heading">
+        <h2>{{ home.about.title }}</h2>
+    </header>
+    <div class="section__content">
+        <p>
+            {{ home.about.body }}
+        </p>
+    </div>
 </section>
 
-
-<section>
-<h2>What We Offer</h2>
-
-<p>
-Our Intensive Outpatient Program (IOP) combines group therapy, individual
-therapy, psychiatric services, and case management, all grounded in the belief
-that substance use is often a response to deeper struggles, not the struggle
-itself.
-</p>
-
-<a href="/about/" role="button">
-Learn More About Our Program →
-</a>
+<section class="feature">
+    <header class="section__heading">
+        <h2>{{ home.services.title }}</h2>
+    </header>
+    <div class="section__content">
+        <p>
+            {{ home.services.body }}
+        </p>
+        <a
+            href="{{ home.services.link.href }}"
+            role="button"
+            class="secondary"
+        >
+            {{ home.services.link.text }}
+        </a>
+    </div>
 </section>
 
-
-<section>
-<h2>Ready to Begin?</h2>
-
-<p>
-If you or someone you love is ready to find a way through, we are here to help.
-</p>
-
-<a href="/contact/" role="button">
-Contact Us
-</a>
+<section class="feature">
+    <header class="section__heading">
+        <h2>{{ home.cta.title }}</h2>
+    </header>
+    <div class="section__content">
+        <p>
+            {{ home.cta.body }}
+        </p>
+        <a
+            href="{{ home.cta.button.href }}"
+            role="button"
+            class="secondary"
+        >
+            {{ home.cta.button.text }}
+        </a>
+    </div>
 </section>

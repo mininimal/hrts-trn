@@ -1,102 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+    {% if page.url == "/" %}
+        {{ site.title }}
+    {% else %}
+        {{ title }} | {{ site.title }}
+    {% endif %}
+    </title>
+    <meta name="description" content="{{ site.description }}">
+    <meta name="theme-color" content="#081a10">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% if page.url == '/' %}{{ site.title }}{% else %}{{ title }} | {{ site.title }}{% endif %}">
+    <meta property="og:description" content="{{ description or site.description }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}{{ site.assets.social }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ site.url }}{{ site.assets.social }}">
+    <script>
+      (() => {
+          const theme = localStorage.getItem("theme");
 
-  <meta name="description" content="{{ site.description }}">
-
-  <title>
-    {{ title }} | {{ site.title }}
-  </title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600&family=Epilogue:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.jade.min.css"
-  >
-
-  <link rel="stylesheet" href="/css/style.css">
+          if (theme) {
+              document.documentElement.dataset.theme = theme;
+          }
+      })();
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600&family=Epilogue:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+    {% include "components/header.njk" %}
+    <main class="container">{{ content | safe }}</main>
+    {% include "components/footer.njk" %}
 
-<header class="container">
+    <script>
+        document.getElementById("year").textContent =
+        new Date().getFullYear();
+    </script>
+    <script>
+      const html = document.documentElement;
+      const themeToggle = document.getElementById("theme-toggle");
+      const logo = document.getElementById("site-logo");
 
-  <nav>
+      // Apply the saved theme (default to dark)
+      const savedTheme = localStorage.getItem("theme");
+      html.setAttribute("data-theme", savedTheme || "dark");
 
-    <ul>
-      <li>
-        <strong>
-            <strong>
-              <a href="/">
-                {% if site.shortTitle %}
-                  {{ site.shortTitle }}
-                {% else %}
-                  {{ site.title }}
-                {% endif %}
-              </a>
-            </strong>
-        </strong>
-      </li>
-    </ul>
+      function updateThemeButton() {
+        if (!themeToggle) return;
 
+        const isDark = html.getAttribute("data-theme") === "dark";
 
-    <ul>
-      {% for item in collections.all | eleventyNavigation %}
+        themeToggle.textContent = isDark ? "☀️" : "🌙";
+        themeToggle.setAttribute(
+          "aria-label",
+          isDark
+            ? "Switch to light mode"
+            : "Switch to dark mode"
+        );
+      }
 
-      <li>
-        <a
-          href="{{ item.url }}"
-          {% if page.url == item.url %}
-          aria-current="page"
-          {% endif %}
-        >
-          {{ item.title }}
-        </a>
-      </li>
+      function updateLogo() {
+        if (!logo) return;
 
-      {% endfor %}
-    </ul>
+        const isDark = html.getAttribute("data-theme") === "dark";
 
-  </nav>
+        logo.src = isDark
+          ? logo.dataset.darkSrc
+          : logo.dataset.lightSrc;
+      }
 
-</header>
+      function updateThemeUI() {
+        updateThemeButton();
+        updateLogo();
+      }
 
+      // Initialize the UI
+      updateThemeUI();
 
-<main class="container">
+      // Toggle the theme
+      themeToggle?.addEventListener("click", () => {
+        const nextTheme =
+          html.getAttribute("data-theme") === "dark"
+            ? "light"
+            : "dark";
 
-{{ content | safe }}
+        html.setAttribute("data-theme", nextTheme);
+        localStorage.setItem("theme", nextTheme);
 
-</main>
-
-
-<footer class="container">
-
-<p>
-© <span id="year"></span>
-{% if site.footer %}
-  {{ site.footer }}
-{% else %}
-  {{ site.title }}
-{% endif %}
-</p>
-
-</footer>
-
-
-<script>
-document.getElementById("year").textContent =
-new Date().getFullYear();
-</script>
-
-
+        updateThemeUI();
+      });
+    </script>
 </body>
 </html>

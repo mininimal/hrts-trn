@@ -1,0 +1,46 @@
+<header class="container">
+    <nav>
+        <a
+            class="site-logo"
+            href="/"
+            aria-label="{{ site.title }}"
+        >
+            <img
+                id="site-logo"
+                src="{{ site.assets.logo.light }}"
+                data-light-src="{{ site.assets.logo.light }}"
+                data-dark-src="{{ site.assets.logo.dark }}"
+                alt=""
+                width="1000"
+                height="299"
+            >
+        </a>
+
+        <ul>
+            {% for item in collections.all | eleventyNavigation %}
+                {% if item.key != "home" %}
+                    <li>
+                        <a
+                            href="{{ item.url }}"
+                            {% if page.url == item.url %}
+                            aria-current="page"
+                            {% endif %}
+                        >
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            <li>
+                <button
+                    id="theme-toggle"
+                    class="secondary outline"
+                    type="button"
+                    aria-label="Switch theme"
+                >
+                    ☀️
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>

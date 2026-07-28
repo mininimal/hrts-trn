@@ -9,119 +9,43 @@ eleventyNavigation:
 ---
 
 <section>
-
-<h1>
-About Hearts Turn Healing & Recovery
-</h1>
-
-<p>
-Every person's path to recovery is different, and every person deserves
-treatment aimed at long-term success, not just short-term stabilization.
-Too many people fall through the cracks of treatment that isn't built around
-them, and recovery often fails when it only addresses the surface.
-</p>
-
-<p>
-That is why Hearts Turn Healing & Recovery pairs evidence-based clinical care
-with a whole-person approach, integrating each client's community, and their
-personal or spiritual beliefs, into their treatment.
-</p>
-
+    <h1>{{ about.title }}</h1>
+    {% for paragraph in about.intro %}
+        <p>
+            {{ paragraph }}
+        </p>
+    {% endfor %}
+    <a
+        href="{{ home.hero.primary.href }}"
+        role="button"
+    >
+        {{ home.hero.primary.text }}
+    </a>
 </section>
 
-
-<section class="grid">
-
-<article>
-<header>
-<h2>Mission</h2>
-</header>
-
-<p>
-{{ values.mission }}
-</p>
-
-</article>
-
-
-<article>
-<header>
-<h2>Vision</h2>
-</header>
-
-<p>
-{{ values.vision }}
-</p>
-
-</article>
-
+<section class="feature">
+    <h2>Mission</h2>
+    <div class="section__content">
+    <p>
+        {{ values.mission }}
+    </p>
+</section>
+<section class="feature">
+    <h2>Vision</h2>
+    <div class="section__content">
+    <p>
+        {{ values.vision }}
+    </p>
 </section>
 
-
-<section>
-
-<h2>Our Values</h2>
-
+<section class="feature">
+<h2>Values</h2>
 <div class="grid">
-
-{% for value in values.values %}
-
-<article>
-
-<h3>
-{{ value.title }}
-</h3>
-
-<p>
-{{ value.description }}
-</p>
-
-</article>
-
-{% endfor %}
-
+    {% for value in values.values %}
+        <article>
+            <header><h3>{{ value.title }}</h3></header>
+            <p>{{ value.description }}</p>
+        </article>
+    {% endfor %}
 </div>
-
-</section>
-
-
-<section>
-
-<h2>Our Values</h2>
-
-<div class="grid">
-
-<article>
-<h3>Integrity</h3>
-<p>
-The foundation of life; to always do what you say you will.
-</p>
-</article>
-
-
-<article>
-<h3>Trust</h3>
-<p>
-Trust yourself, trust others, and trust in the process.
-</p>
-</article>
-
-
-<article>
-<h3>Compassion</h3>
-<p>
-With yourself and others.
-</p>
-</article>
-
-
-<article>
-<h3>Freedom</h3>
-<p>
-From our addictions and from the mechanical self.
-</p>
-</article>
-
-</div>
-
 </section>
