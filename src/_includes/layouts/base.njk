@@ -99,5 +99,21 @@
         updateThemeUI();
       });
     </script>
+    <script>
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.getElementById("primary-nav");
+
+      toggle?.addEventListener("click", () => {
+          const open = nav.classList.toggle("open");
+
+          toggle.setAttribute("aria-expanded", open);
+          toggle.setAttribute(
+              "aria-label",
+              open ? "Close menu" : "Open menu"
+          );
+
+          toggle.textContent = open ? "✕" : "☰";
+      });
+    </script>
 </body>
 </html>
